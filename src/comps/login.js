@@ -12,19 +12,16 @@ function Login(props){
   let history = useHistory();
 
   const onSubForm = async(formData) => {
-    console.log(formData);
     try{
 
       let url = API_URL+"/users/login";
       let data = await doApiMethod(url,"POST",formData);
-      console.log(data);
       localStorage.setItem("tok",data.token);
       await updateUserData();
       toast.success("You logged in !");
       history.push("/userInfo");
     }
     catch(err){
-      console.log(err);
       toast.error("User or password worng!");
     }
 

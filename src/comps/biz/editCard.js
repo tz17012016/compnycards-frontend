@@ -25,7 +25,6 @@ function EditCard(props) {
   const doApi = async() => {
     let url = API_URL+"/cards/single/"+props.computedMatch.params.id
     let data = await doApiGet(url);
-    console.log(data);
     setCard(data);
    
     setValue("bizName",data.bizName);
@@ -37,19 +36,15 @@ function EditCard(props) {
   }
 
   const onSubForm = async (dataForm) => {
-    console.log(dataForm);
-
     try {
       let url = API_URL + "/cards/" + props.computedMatch.params.id;
       let data = await doApiMethod(url, "PUT", dataForm);
-      console.log(data)
-      if (data.n == 1){
+      if (data.n === 1){
         toast.dark("Card been update");
         history.push("/myBizCards");
       }
     }
     catch (err) {
-      console.log(err);
       toast.error("There problem, come back next year!");
     }
   }

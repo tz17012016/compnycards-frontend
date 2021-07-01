@@ -14,8 +14,6 @@ function MyCards(props) {
   const doApi = async () => {
     let url = API_URL + "/cards/userCardsAdded?perPage=999";
     let data = await doApiMethod(url, "GET");
-
-    console.log(data);
     data.reverse();
     setAr(data);
   }
@@ -24,7 +22,7 @@ function MyCards(props) {
     if(window.confirm("Are you sure you want to del?")){
       let url = API_URL+ "/cards/"+_id;
       let data = await doApiMethod(url,"DELETE");
-      if(data.n == 1){
+      if(data.n === 1){
         doApi();
         toast.info("Card deleted forever!!!!!!");
       }

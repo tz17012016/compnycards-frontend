@@ -10,8 +10,6 @@ function SignUpClient(props){
   let history = useHistory();
 
   const onSubForm = async(formData) => {
-    console.log(formData);
-    
     let url = API_URL+"/users/";
     try{
       let data = await doApiMethod(url,"POST",formData);
@@ -24,7 +22,6 @@ function SignUpClient(props){
       }
     }
     catch(err){
-      console.log(err.response.data);
       if(err.response.data.code){
         toast.error("User already in systme , try login");
       }

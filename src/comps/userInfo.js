@@ -12,7 +12,6 @@ function UserInfo(props) {
   const doApi = async () => {
     let url = API_URL + '/users/userInfo';
     let data = await doApiMethod(url, 'GET');
-    console.log(data);
     data.dateCreated = data.createdAt.substr(0, data.createdAt.indexOf('T'));
     setUserInfo(data);
   };

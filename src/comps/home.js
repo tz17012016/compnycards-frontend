@@ -17,7 +17,6 @@ function Home(props) {
 
   const doApi = async (_url) => {
     let data = await doApiGet(_url);
-    console.log(data);
     setCardsAr(data);
   };
 

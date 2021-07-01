@@ -32,7 +32,6 @@ function CardsList(props) {
       }}  className="btn btn-warning">- fav</button>)
     }
   }
-
   return (
     <div className="row">
       {props.ar.map(item => {

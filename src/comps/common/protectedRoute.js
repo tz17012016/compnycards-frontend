@@ -9,7 +9,6 @@ function ProtectedRoute(props) {
 
   const checkTokenUser = async () => {
     let data = await checkIfUser()
-    console.log(data);
   
     if(props.bizRoute){
       let user = getUserData();

@@ -42,31 +42,29 @@ export const updateUserCardsAddFav = async(_bizCardNumber) => {
   let url = API_URL+"/users/cards"
   try{
     let data = await doApiMethod(url,"PATCH",{cards:user.cards});
-    if(data.n == 1){
+    if(data.n === 1){
       toast.success("Cards fav update")
     }
     return data;
   }
   catch(err){
-    console.log(err)
     toast.error("There problem , try again later !")
     throw err
   }
 }
 
 export const removeUserCardFav = async(_bizCardNumber) => {
-  let temp_ar  = user.cards.filter(item => item != _bizCardNumber)
+  let temp_ar  = user.cards.filter(item => item !== _bizCardNumber)
   user.cards.splice(0, user.cards.length, ...temp_ar);
   let url = API_URL+"/users/cards"
   try{
     let data = await doApiMethod(url,"PATCH",{cards:user.cards});
-    if(data.n == 1){
+    if(data.n === 1){
       toast.warning("Cards fav removed")
     }
     return data;
   }
   catch(err){
-    console.log(err)
     toast.error("There problem , try again later !")
     throw err
   }

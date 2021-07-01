@@ -16,19 +16,16 @@ function AddCard(props) {
   let imageRef = register("bizImage", { required: false });
 
   const onSubForm = async (dataForm) => {
-    console.log(dataForm);
 
     try {
       let url = API_URL + "/cards";
       let data = await doApiMethod(url, "POST", dataForm);
-      console.log(data)
       if (data._id){
         toast.success("Card been added");
         history.push("/myBizCards");
       }
     }
     catch (err) {
-      console.log(err);
       toast.error("There problem, come back next year!");
     }
   }

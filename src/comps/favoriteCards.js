@@ -16,7 +16,6 @@ function FavoriteCards(props){
   const doApi = async(_url) => {
     try{
     let data = await doApiMethod(_url,"GET");
-    console.log(data);
     setCardsAr(data);
     }
     catch(err){
